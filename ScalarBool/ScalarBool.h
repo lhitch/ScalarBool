@@ -9,9 +9,9 @@ namespace ScalarBool {
 	class ScalarBool
 	{
 	public:
-		ScalarBool(double init);
+		ScalarBool(void);
 		double GetVal(void);
-		void Cap(void);
+		void cap(void);
 		operator bool() const;
 		void operator=(const double);
 		void operator=(const bool);

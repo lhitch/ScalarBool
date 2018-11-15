@@ -3,9 +3,10 @@
 #include <cmath> // signbit
 
 namespace ScalarBool {
-	ScalarBool::ScalarBool(double init)
+
+	ScalarBool::ScalarBool(void)
 	{
-		scalar = std::max(ScalarBool::MIN_CLAMP_VAL, std::min(init, ScalarBool::MAX_CLAMP_VAL));
+		scalar = 1.0;
 	}
 
 	double ScalarBool::GetVal()
@@ -14,7 +15,7 @@ namespace ScalarBool {
 	}
 
 	// set the scalar to the maximum clamp
-	void ScalarBool::Cap()
+	void ScalarBool::cap()
 	{
 		scalar = scalar < 0 ? MIN_CLAMP_VAL : MAX_CLAMP_VAL;
 	}
@@ -34,7 +35,7 @@ namespace ScalarBool {
 	// given a boolean value, set scalar to 1 if true and -1 if false
 	void ScalarBool::operator= (const bool rval)
 	{
-		scalar = rval ? MAX_CLAMP_VAL : -MIN_CLAMP_VAL;
+		scalar = rval ? MAX_CLAMP_VAL : MIN_CLAMP_VAL;
 	}
 
 	// returns the flipped value of the scalar
